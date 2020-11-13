@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JSON_Database.iml" filepath="$PROJECT_DIR$/.idea/modules/JSON_Database.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Compression algorithm/JSON_Database.Problems-Compression_algorithm.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Compression algorithm/JSON_Database.Problems-Compression_algorithm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Compression algorithm/JSON_Database.Problems-Compression_algorithm.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Compression algorithm/JSON_Database.Problems-Compression_algorithm.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Compression algorithm/JSON_Database.Problems-Compression_algorithm.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Compression algorithm/JSON_Database.Problems-Compression_algorithm.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Palindrome/JSON_Database.Problems-Palindrome.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Palindrome/JSON_Database.Problems-Palindrome.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Palindrome/JSON_Database.Problems-Palindrome.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Palindrome/JSON_Database.Problems-Palindrome.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Palindrome/JSON_Database.Problems-Palindrome.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Palindrome/JSON_Database.Problems-Palindrome.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/The percentage of G and C characters/JSON_Database.Problems-The_percentage_of_G_and_C_characters.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/The percentage of G and C characters/JSON_Database.Problems-The_percentage_of_G_and_C_characters.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/The percentage of G and C characters/JSON_Database.Problems-The_percentage_of_G_and_C_characters.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/The percentage of G and C characters/JSON_Database.Problems-The_percentage_of_G_and_C_characters.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/The percentage of G and C characters/JSON_Database.Problems-The_percentage_of_G_and_C_characters.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/The percentage of G and C characters/JSON_Database.Problems-The_percentage_of_G_and_C_characters.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/JSON_Database.util.iml" filepath="$PROJECT_DIR$/.idea/modules/util/JSON_Database.util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/JSON_Database.util.main.iml" filepath="$PROJECT_DIR$/.idea/modules/util/JSON_Database.util.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/JSON_Database.util.test.iml" filepath="$PROJECT_DIR$/.idea/modules/util/JSON_Database.util.test.iml" />
+    </modules>
+  </component>
+</project>
