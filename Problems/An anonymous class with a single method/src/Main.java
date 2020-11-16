@@ -17,4 +17,3 @@ interface SingleMethodInterface {
 
     void doSomething();
 }
-
