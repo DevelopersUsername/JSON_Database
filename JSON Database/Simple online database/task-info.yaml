@@ -1,17 +1,5 @@
 type: edu
 files:
-- name: src/client/Main.java
-  visible: true
-  text: |
-    package client;
-
-    public class Main {
-
-        public static void main(String[] args) {
-            System.out.println("Hello, world!");
-        }
-    }
-  learner_created: false
 - name: src/server/Main.java
   visible: true
   text: |
@@ -282,6 +270,18 @@ files:
         }
     }
   learner_created: true
+- name: src/client/Main.java
+  visible: true
+  text: |
+    package client;
+
+    public class Main {
+
+        public static void main(String[] args) {
+            System.out.println("Hello, world!");
+        }
+    }
+  learner_created: false
 feedback_link: https://hyperskill.org/projects/65/stages/350/implement#comment
 status: Unchecked
 record: -1
