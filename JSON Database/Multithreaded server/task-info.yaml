@@ -111,6 +111,12 @@ files:
             TestedProgram client = getClient();
             client.start("-t", "exit");
 
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
             if (!server.isFinished()) {
                 server.stop();
                 return CheckResult.wrong(WRONG_EXIT);

@@ -34,6 +34,12 @@ public class JsonDatabaseTest extends StageTest<String> {
         TestedProgram client = getClient();
         client.start("-t", "exit");
 
+        try {
+            Thread.sleep(50);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         if (!server.isFinished()) {
             server.stop();
             return CheckResult.wrong(WRONG_EXIT);

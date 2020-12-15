@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/210138/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: Sun, 06 Dec 2020 20:47:09 UTC
+update_date: Tue, 15 Dec 2020 20:12:11 UTC
 stages:
 - id: 348
   step: 5490
@@ -215,14 +215,14 @@ topics:
     theory_id: 4311
   - title: Command-line arguments
     theory_id: 3566
-  - title: IntelliJ Run Configurations
-    theory_id: 10630
   - title: Maven basics
     theory_id: 4281
   - title: The simplest project with Maven
     theory_id: 4282
   - title: Dependencies
     theory_id: 4283
+  - title: IntelliJ Run Configurations
+    theory_id: 10630
   3:
   - title: Immutability
     theory_id: 7929

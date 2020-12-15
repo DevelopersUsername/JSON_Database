@@ -72,10 +72,11 @@ files:
     \ int threadsCount;\n\n    @DynamicTestingMethod\n    CheckResult checkExit()\
     \ {\n\n        TestedProgram server = getServer();\n        server.startInBackground();\n\
     \n        TestedProgram client = getClient();\n        client.start(\"-t\", \"\
-    exit\");\n\n        if (!server.isFinished()) {\n            server.stop();\n\
-    \            return CheckResult.wrong(WRONG_EXIT);\n        }\n\n        return\
-    \ CheckResult.correct();\n    }\n\n    @DynamicTestingMethod\n    CheckResult\
-    \ checkJsonFile() throws IOException {\n\n        if (!Files.exists(Paths.get(serverFolderPath)))\
+    exit\");\n\n        try {\n            Thread.sleep(50);\n        } catch (InterruptedException\
+    \ e) {\n            e.printStackTrace();\n        }\n\n        if (!server.isFinished())\
+    \ {\n            server.stop();\n            return CheckResult.wrong(WRONG_EXIT);\n\
+    \        }\n\n        return CheckResult.correct();\n    }\n\n    @DynamicTestingMethod\n\
+    \    CheckResult checkJsonFile() throws IOException {\n\n        if (!Files.exists(Paths.get(serverFolderPath)))\
     \ {\n            return CheckResult.wrong(\"Can't find /server/data folder\");\n\
     \        }\n\n        if (!Files.exists(Paths.get(serverJsonFileName))) {\n  \
     \          return CheckResult.wrong(\"Can't find \" + fileName + \" file in the\
