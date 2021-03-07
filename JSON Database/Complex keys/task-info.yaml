@@ -167,9 +167,10 @@ files:
     \  )\n                        .anyOtherValues()\n                    )\n     \
     \       );\n        checkIfThreadWasCreated();\n\n\n        client = getClient();\n\
     \        client.start(\"-t\", \"exit\");\n\n        return CheckResult.correct();\n\
-    \    }\n\n    private static TestedProgram getClient() {\n        return new TestedProgram(client.Main.class);\n\
-    \    }\n\n    private static TestedProgram getServer() {\n        return new TestedProgram(server.Main.class);\n\
-    \    }\n\n    private static int getThreadCount() {\n        return (int) ManagementFactory.getThreadMXBean().getTotalStartedThreadCount();\n\
+    \    }\n\n    private static TestedProgram getClient() {\n        return new TestedProgram(\"\
+    client\");\n    }\n\n    private static TestedProgram getServer() {\n        return\
+    \ new TestedProgram(\"server\");\n    }\n\n    private static int getThreadCount()\
+    \ {\n        return (int) ManagementFactory.getThreadMXBean().getTotalStartedThreadCount();\n\
     \    }\n\n    private static void checkIfThreadWasCreated() {\n\n        int total\
     \ = getThreadCount();\n\n        /*8 threads: 1 server thread and 7 client threads\
     \ created during the test.\n         If the server doesn't handle clients in a\

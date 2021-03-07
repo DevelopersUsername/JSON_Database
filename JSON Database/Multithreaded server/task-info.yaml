@@ -28,6 +28,7 @@ files:
   visible: false
   text: |-
     import com.google.gson.Gson;
+    import com.google.gson.JsonElement;
     import com.google.gson.JsonObject;
 
     class JsonBuilder {
@@ -36,6 +37,7 @@ files:
         private final JsonObject jsonObject = new JsonObject();
 
         private JsonBuilder() {
+
         }
 
         public static JsonBuilder newBuilder() {
@@ -44,6 +46,11 @@ files:
 
         public JsonBuilder addValue(String key, String value) {
             jsonObject.addProperty(key, value);
+            return this;
+        }
+
+        public JsonBuilder addValue(String key, JsonElement value) {
+            jsonObject.add(key, value);
             return this;
         }
 
@@ -509,11 +516,11 @@ files:
         }
 
         private static TestedProgram getClient() {
-            return new TestedProgram(client.Main.class);
+            return new TestedProgram("client");
         }
 
         private static TestedProgram getServer() {
-            return new TestedProgram(server.Main.class);
+            return new TestedProgram("server");
         }
 
         private static int getThreadCount() {

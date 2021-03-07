@@ -1,34 +1,95 @@
 package client;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.Parameter;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class Main {
 
-    private static final String SERVER_ADDRESS = "127.0.0.1";
-    private static final int SERVER_PORT = 1080;
+    @Parameter(names = {"-t"})
+    String typeOfRequest;
+
+    @Parameter(names = {"-k"})
+    String key;
+
+    @Parameter(names = {"-v"})
+    String value;
+
+    @Parameter(names = {"-in"})
+    String fileName;
+
+    private static final String QUERY_PATH = System.getProperty("user.dir") + File.separator +
+            "src" + File.separator +
+            "client" + File.separator +
+            "data" + File.separator;
 
     public static void main(String[] args) {
-        startServer();
+
+        Main main = new Main();
+        JCommander.newBuilder()
+                .addObject(main)
+                .build()
+                .parse(args);
+        main.run();
+
     }
 
-    static void startServer() {
+    @SuppressWarnings("ResultOfMethodCallIgnored")
+    public void run() {
+        String address = "127.0.0.1";
+        int port = 23456;
 
         System.out.println("Client started!");
 
-        try (
-                Socket socket = new Socket(InetAddress.getByName(SERVER_ADDRESS), SERVER_PORT);
-                DataInputStream input = new DataInputStream(socket.getInputStream());
-                DataOutputStream output  = new DataOutputStream(socket.getOutputStream())
-        ) {
-            String message = "Give me a record # 12";
-            System.out.println(message);
-            output.writeUTF("Sent: " + message);
+        try (Socket socket = new Socket(InetAddress.getByName(address), port);
+             DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
+             DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream())) {
 
-            System.out.println("Received: " + input.readUTF());
+            JsonObject jsonObject = new JsonObject();
+
+            jsonObject.addProperty("type", typeOfRequest);
+
+            if (fileName != null) {
+                if (!new File(QUERY_PATH).exists()) {
+                    new File(QUERY_PATH).mkdirs();
+                }
+
+                File file = new File(QUERY_PATH + fileName);
+                if (file.exists()) {
+                    Scanner scanner = new Scanner(file);
+                    try {
+                        jsonObject = JsonParser.parseString(scanner.nextLine()).getAsJsonObject();
+                    } catch (Exception e) {
+                        System.out.println("File not valid");
+                        return;
+                    }
+                } else {
+                    System.out.println("File not exits");
+                    return;
+                }
+            } else {
+                if (typeOfRequest == null) {
+                    typeOfRequest = "null";
+                }
+
+                if (RequestType.find(typeOfRequest.toLowerCase()) != RequestType.EXIT) {
+                    jsonObject.addProperty("key", key);
+                }
+                if (RequestType.find(typeOfRequest.toLowerCase()) == RequestType.SET) {
+                    jsonObject.addProperty("value", value);
+                }
+            }
+
+            dataOutputStream.writeUTF(jsonObject.toString());
+            System.out.println("Sent: " + jsonObject.toString());
+
+            System.out.println("Received: " + dataInputStream.readUTF());
 
         } catch (IOException e) {
             e.printStackTrace();
